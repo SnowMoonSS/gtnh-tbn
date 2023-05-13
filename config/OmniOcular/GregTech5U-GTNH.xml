@@ -1,0 +1,465 @@
+<!--Version: 5.09.34.16-GTNH-->
+<!--Date: 2021/05/14-->
+<!--Author: Amamiya-Nagisa-->
+<!--Editor: JimJokes, KuroPeach-->
+<oo>
+<init>
+	function formatBytes(bytes) {
+		if (bytes === 0) return 0;
+		var k = 1000,
+		sizes = ['', 'K', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y'],
+		i = Math.floor(Math.log(bytes) / Math.log(k));
+		if(sizes[i]){return (bytes / Math.pow(k, i)).toFixed(i==0?0:2)+sizes[i]}
+		return bytes
+	}
+	function isBetween(min, max, val){
+		return min <= val && val <= max
+	}
+</init>
+<tileentity id="BaseMetaTileEntity">
+		<!--锅炉：温度-->
+		<line displayname="hud.msg.temperature">
+            if([100,105,114].indexOf(nbt['mID'])>-1){return nbt['mTemperature']+" / 500"+WHITE+" C"}
+		    if([101,102].indexOf(nbt['mID'])>-1){return nbt['mTemperature']+" / 1000"+WHITE+" C"}
+			if(nbt['mID']==753){return nbt['mTemperature']+" / 1250"+WHITE+" C"}
+			if(nbt['mID']==754){return nbt['mTemperature']+" / 1500"+WHITE+" C"}
+			if(nbt['mID']==755){return nbt['mTemperature']+" / 1750"+WHITE+" C"}
+		</line>
+		
+		<!--电力机器：功率-->
+		<line displayname="能耗">
+		    if(nbt['mEUt']!=0) if(nbt['mEUt']!=undefined) if(nbt['mStoredSteam']==0)
+			if(nbt['mID']!=1020 && nbt['mID']!=1021 && nbt['mID']!=1022 && nbt['mID']!=1023 && nbt['mID']!=31041 && nbt['mID']!=11541 && nbt['mID']!=1131 && nbt['mID']!=865 && nbt['mID']!=866 && nbt['mID']!=1151 && nbt['mID']!=1152 && nbt['mID']!=1153)
+			if(nbt['mWrench']!=0 && nbt['mScrewdriver']!=0 && nbt['mSoftHammer']!=0 && nbt['mHardHammer']!=0 && nbt['mSolderingTool']!=0 && nbt['mCrowbar']!=0){return YELLOW+Math.abs(nbt['mEUt']).toFixed(2)+WHITE+" EU/t"}
+		</line>
+
+		<line displayname="产能">
+		    if(nbt['mEUt']!=0) if(nbt['mEUt']!=undefined) if(nbt['mStoredSteam']==0)
+			if(nbt['mID']==1131 || nbt['mID']==865 || nbt['mID']==866 || nbt['mID']==1151 || nbt['mID']==1152 || nbt['mID']==1153)
+			if(nbt['mWrench']!=0 && nbt['mScrewdriver']!=0 && nbt['mSoftHammer']!=0 && nbt['mHardHammer']!=0 && nbt['mSolderingTool']!=0 && nbt['mCrowbar']!=0){return YELLOW+(nbt['mEUt']).toFixed(2)+WHITE+" EU/t"}
+		</line>
+		
+		<!--多方块机器于未完全修复情况下的功率-->
+		<line displayname="能耗(有故障)">
+		    if(nbt['mEUt']!=0) if(nbt['mEUt']!=undefined)
+			if(nbt['mID']!=1131 && nbt['mID']!=865 && nbt['mID']!=866 && nbt['mID']!=1151 && nbt['mID']!=1152 && nbt['mID']!=1153)
+			if(nbt['mWrench']==0 || nbt['mScrewdriver']==0 || nbt['mSoftHammer']==0 || nbt['mHardHammer']==0 || nbt['mSolderingTool']==0 || nbt['mCrowbar']==0){
+			return YELLOW+(Math.abs(nbt['mEUt'])*(1+(0.1*(6-nbt['mWrench']-nbt['mScrewdriver']-nbt['mSoftHammer']-nbt['mHardHammer']-nbt['mSolderingTool']-nbt['mCrowbar'])))).toFixed(2)+WHITE+" EU/t"}
+		</line>	
+
+		<line displayname="产能(有故障)">
+		    if(nbt['mEUt']!=0) if(nbt['mEUt']!=undefined)
+			if(nbt['mID']==1131 || nbt['mID']==865 || nbt['mID']==866 || nbt['mID']==1151 || nbt['mID']==1152 || nbt['mID']==1153)
+			if(nbt['mWrench']==0 || nbt['mScrewdriver']==0 || nbt['mSoftHammer']==0 || nbt['mHardHammer']==0 || nbt['mSolderingTool']==0 || nbt['mCrowbar']==0){
+			return YELLOW+((nbt['mEUt'])*(nbt['mEfficiency']/10000)).toFixed(2)+WHITE+" EU/t"}
+		</line>	
+		
+		<!--蒸汽机器：功率-->
+		<line displayname="hud.msg.greg.requiredsteam">
+		    if(nbt['mEUt']!=0 && nbt['mActive']==1)if(nbt['mEUt']!=undefined)
+			if(nbt['mStoredSteam']!=0 || nbt['mID']==31041){return YELLOW+Math.abs(nbt['mEUt']) * 2+WHITE+" mB/t"}
+		</line>
+		
+		<!--机器：加工进度-->
+		<line displayname="hud.msg.progress">
+		    if(nbt['mMaxProgresstime']!=0)
+			if(nbt['mID']!=1154 && nbt['mID']!=1131 && nbt['mID']!=1020 && nbt['mID']!=1021 && nbt['mID']!=1022 && nbt['mID']!=1023 && nbt['mID']!=1171)
+			if(nbt['mMaxProgresstime']!=undefined){return YELLOW+(nbt['mProgresstime'] / 20).toFixed(0)+WHITE+"/"+nbt['mMaxProgresstime'] / 20+" s"}
+		</line>			
+	
+		<!--蒸汽存量-->
+        <line displayname="hud.msg.storedsteam">
+            if(nbt['mSteam']['Amount']!=undefined){return nbt['mSteam']['Amount']+" mB"}
+		</line>
+        <line displayname="hud.msg.storedsteam">
+            if(nbt['mStoredSteam']!=0){return nbt['mStoredSteam']+" mB"}
+		</line>
+		
+		
+		<!--工业熔炉：单次加工数量-->
+		<line displayname="单次加工">
+		    if(nbt['mOutputItemsLength']!=undefined && nbt['mID']==1003){return YELLOW+nbt['mOutputItemsLength']+WHITE+"个物品"}
+		</line>
+
+		<line displayname="hud.msg.greg.multifurnaceoutput">
+            if(nbt['mActive']==1 && nbt['mID']==1003)
+			if(nbt['mOutputItem5']!=null){return GREEN+name(nbt['mOutputItem0'])+WHITE+"/"+GREEN+name(nbt['mOutputItem1'])+WHITE+"/"+GREEN+name(nbt['mOutputItem2'])+WHITE+"/"+GREEN+name(nbt['mOutputItem3'])+WHITE+"/"+GREEN+name(nbt['mOutputItem4'])+WHITE+"/"+GREEN+name(nbt['mOutputItem5'])}
+            if(nbt['mActive']==1 && nbt['mID']==1003)
+			if(nbt['mOutputItem4']!=null){return GREEN+name(nbt['mOutputItem0'])+WHITE+"/"+GREEN+name(nbt['mOutputItem1'])+WHITE+"/"+GREEN+name(nbt['mOutputItem2'])+WHITE+"/"+GREEN+name(nbt['mOutputItem3'])+WHITE+"/"+GREEN+name(nbt['mOutputItem4'])}
+            if(nbt['mActive']==1 && nbt['mID']==1003)
+			if(nbt['mOutputItem3']!=null){return GREEN+name(nbt['mOutputItem0'])+WHITE+"/"+GREEN+name(nbt['mOutputItem1'])+WHITE+"/"+GREEN+name(nbt['mOutputItem2'])+WHITE+"/"+GREEN+name(nbt['mOutputItem3'])}
+            if(nbt['mActive']==1 && nbt['mID']==1003)
+			if(nbt['mOutputItem2']!=null){return GREEN+name(nbt['mOutputItem0'])+WHITE+"/"+GREEN+name(nbt['mOutputItem1'])+WHITE+"/"+GREEN+name(nbt['mOutputItem2'])}
+            if(nbt['mActive']==1 && nbt['mID']==1003)
+			if(nbt['mOutputItem1']!=null){return GREEN+name(nbt['mOutputItem0'])+WHITE+"/"+GREEN+name(nbt['mOutputItem1'])}
+            if(nbt['mActive']==1 && nbt['mID']==1003)
+			if(nbt['mOutputItem0']!=null){return GREEN+name(nbt['mOutputItem0'])}
+		</line>
+		<line displayname="hud.msg.greg.multifurnaceoutput2">
+            if(nbt['mActive']==1 && nbt['mID']==1003)
+			if(nbt['mOutputItem11']!=null){return GREEN+name(nbt['mOutputItem6'])+WHITE+"/"+GREEN+name(nbt['mOutputItem7'])+WHITE+"/"+GREEN+name(nbt['mOutputItem8'])+WHITE+"/"+GREEN+name(nbt['mOutputItem9'])+WHITE+"/"+GREEN+name(nbt['mOutputItem10'])+WHITE+"/"+GREEN+name(nbt['mOutputItem11'])}
+            if(nbt['mActive']==1 && nbt['mID']==1003)
+			if(nbt['mOutputItem10']!=null){return GREEN+name(nbt['mOutputItem6'])+WHITE+"/"+GREEN+name(nbt['mOutputItem7'])+WHITE+"/"+GREEN+name(nbt['mOutputItem8'])+WHITE+"/"+GREEN+name(nbt['mOutputItem9'])+WHITE+"/"+GREEN+name(nbt['mOutputItem10'])}
+            if(nbt['mActive']==1 && nbt['mID']==1003)
+			if(nbt['mOutputItem9']!=null){return GREEN+name(nbt['mOutputItem6'])+WHITE+"/"+GREEN+name(nbt['mOutputItem7'])+WHITE+"/"+GREEN+name(nbt['mOutputItem8'])+WHITE+"/"+GREEN+name(nbt['mOutputItem9'])}
+            if(nbt['mActive']==1 && nbt['mID']==1003)
+			if(nbt['mOutputItem8']!=null){return GREEN+name(nbt['mOutputItem6'])+WHITE+"/"+GREEN+name(nbt['mOutputItem7'])+WHITE+"/"+GREEN+name(nbt['mOutputItem8'])}
+            if(nbt['mActive']==1 && nbt['mID']==1003)
+			if(nbt['mOutputItem7']!=null){return GREEN+name(nbt['mOutputItem6'])+WHITE+"/"+GREEN+name(nbt['mOutputItem7'])}
+            if(nbt['mActive']==1 && nbt['mID']==1003)
+			if(nbt['mOutputItem6']!=null){return GREEN+name(nbt['mOutputItem6'])}
+		</line>
+		<line displayname="hud.msg.greg.multifurnaceoutput3">
+            if(nbt['mActive']==1 && nbt['mID']==1003)
+			if(nbt['mOutputItem17']!=null){return GREEN+name(nbt['mOutputItem12'])+WHITE+"/"+GREEN+name(nbt['mOutputItem13'])+WHITE+"/"+GREEN+name(nbt['mOutputItem14'])+WHITE+"/"+GREEN+name(nbt['mOutputItem15'])+WHITE+"/"+GREEN+name(nbt['mOutputItem16'])+WHITE+"/"+GREEN+name(nbt['mOutputItem17'])}
+            if(nbt['mActive']==1 && nbt['mID']==1003)
+			if(nbt['mOutputItem16']!=null){return GREEN+name(nbt['mOutputItem12'])+WHITE+"/"+GREEN+name(nbt['mOutputItem13'])+WHITE+"/"+GREEN+name(nbt['mOutputItem14'])+WHITE+"/"+GREEN+name(nbt['mOutputItem15'])+WHITE+"/"+GREEN+name(nbt['mOutputItem16'])}
+            if(nbt['mActive']==1 && nbt['mID']==1003)
+			if(nbt['mOutputItem15']!=null){return GREEN+name(nbt['mOutputItem12'])+WHITE+"/"+GREEN+name(nbt['mOutputItem13'])+WHITE+"/"+GREEN+name(nbt['mOutputItem14'])+WHITE+"/"+GREEN+name(nbt['mOutputItem15'])}
+            if(nbt['mActive']==1 && nbt['mID']==1003)
+			if(nbt['mOutputItem14']!=null){return GREEN+name(nbt['mOutputItem12'])+WHITE+"/"+GREEN+name(nbt['mOutputItem13'])+WHITE+"/"+GREEN+name(nbt['mOutputItem14'])}
+            if(nbt['mActive']==1 && nbt['mID']==1003)
+			if(nbt['mOutputItem13']!=null){return GREEN+name(nbt['mOutputItem12'])+WHITE+"/"+GREEN+name(nbt['mOutputItem13'])}
+            if(nbt['mActive']==1 && nbt['mID']==1003)
+			if(nbt['mOutputItem12']!=null){return GREEN+name(nbt['mOutputItem12'])}
+		</line>
+		
+		<!--超净室-->
+		<line displayname="洁净度">
+            if(nbt['mID']==1172){return YELLOW+(nbt['mEfficiency'] / 100).toFixed(0)+WHITE+" %"}
+		</line>
+		
+		<!--大型热交换器：蒸汽生产速度-->
+		<line displayname="hud.msg.greg.output">
+		    if(nbt['mActive']!=0) if(nbt['mEUt']!=undefined) if(nbt['mID']==1154)
+			if(nbt['superheated']==0){return GREEN+"蒸汽: "+YELLOW+Math.abs(nbt['mEUt']) * 2+WHITE+" mB/t"}
+		</line>
+		
+		<!--大型热交换器：过热蒸汽生产速度-->
+		<line displayname="hud.msg.greg.output">
+		    if(nbt['mActive']!=0) if(nbt['mEUt']!=undefined) if(nbt['mID']==1154)
+			if(nbt['superheated']==1){return GREEN+"过热蒸汽: "+YELLOW+Math.abs(nbt['mEUt'])+WHITE+" mB/t"}
+		</line>
+		
+		<!--大型热交换器：效率-->
+		<line displayname="效率">
+		    if(nbt['mActive']!=0)
+			if(nbt['mID']==1154){return YELLOW+((nbt['mEfficiency']) / 100).toFixed(0)+WHITE+" %"}
+		</line>
+		
+	    <!--大型涡轮机：转子耐久-->
+		<line displayname="转子耐久">
+		    a=nbt['Inventory']['0']['tag']['GT.ToolStats']['Damage'];
+			b=nbt['Inventory']['0']['tag']['GT.ToolStats']['MaxDamage'];
+		    if(nbt['mEUt']!=undefined)
+			if(nbt['mID']==1131 || nbt['mID']==865 || nbt['mID']==866 || nbt['mID']==1151 || nbt['mID']==1152 || nbt['mID']==1153){return YELLOW+((1-a/b)*100).toFixed(2)+WHITE+" %"}
+		</line>
+		
+		<!--大型涡轮机：效率-->
+		<line displayname="效率">
+		    if(nbt['mEfficiency']!=0)if(nbt['mEfficiency']!=undefined)
+			if(nbt['mID']==1131 || nbt['mID']==865 || nbt['mID']==866 || nbt['mID']==1151 || nbt['mID']==1152 || nbt['mID']==1153){return YELLOW+((nbt['mEfficiency']) / 100).toFixed(0)+WHITE+" %"}
+		</line>
+		
+		<!--大型涡轮机：是否运行-->
+		<line displayname="状态">
+		    if(nbt['mEUt']!=undefined)
+			if(nbt['mID']==1131 || nbt['mID']==865 || nbt['mID']==866 || nbt['mID']==1151 || nbt['mID']==1152 || nbt['mID']==1153){
+			switch(nbt['mActive']){case 0:return RED+"停止运行";break; case 1:return GREEN+"运行正常";break;}}
+		</line>
+		
+		<!--大型锅炉：蒸汽生产速度-->
+		<line displayname="蒸汽生产">
+		    if(nbt['mActive']!=0) if(nbt['mEUt']!=undefined)
+			if(nbt['mID']==1020 || nbt['mID']==1021 || nbt['mID']==1022 || nbt['mID']==1023){return YELLOW+Math.abs(nbt['mEUt']) * 2+WHITE+" mB/t"}
+		</line>
+		
+		<!--大型柴油引擎：效率-->
+		<line displayname="效率">
+		    if(nbt['mEfficiency']!=0) if(nbt['mEfficiency']!=undefined)
+			if(nbt['mID']==1171){return YELLOW+((nbt['mEfficiency']) / 100).toFixed(0)+WHITE+" %"}
+		</line>
+		
+		<!--多方块机器需要维修 -->
+		<line displayname="注意">
+			if(nbt['mWrench']==0 || nbt['mScrewdriver']==0 || nbt['mSoftHammer']==0 || nbt['mHardHammer']==0 || nbt['mSolderingTool']==0 || nbt['mCrowbar']==0){
+			return RED+"出bug了, 需要维修~~"}
+		</line>	
+		<line>
+			if(nbt['mWrench']==0){return RED+"需要扳手来修复"}
+			if(nbt['mScrewdriver']==0){return RED+"需要螺丝刀来修复"}
+			if(nbt['mSoftHammer']==0){return RED+"需要软锤来修复"}
+			if(nbt['mHardHammer']==0){return RED+"需要锤子来修复"}
+			if(nbt['mHardHammer']==0){return RED+"需要锤子来修复"}
+			if(nbt['mSolderingTool']==0){return RED+"需要电烙铁来修复"}
+			if(nbt['mCrowbar']==0){return RED+"需要撬棍来修复"}
+		</line>	
+		
+		<!--RF能量转换器 -->
+		<line displayname="输出电压">
+			if(nbt['mID']==31022){
+			switch(nbt['mTier']){
+				case 0:return YELLOW+"ULV"; break;
+				case 1:return YELLOW+"LV"; break;
+				case 2:return YELLOW+"MV"; break;
+				case 3:return YELLOW+"HV"; break;
+				case 4:return YELLOW+"EV"; break;
+				case 5:return YELLOW+"IV"; break;
+				case 6:return YELLOW+"LuV"; break;
+				case 7:return YELLOW+"ZPM"; break;
+				case 8:return YELLOW+"UV"; break;
+				case 9:return YELLOW+"MAX"; break;}}
+		</line>	
+		<line displayname="输出电流">
+			if(nbt['mID']==31022){return YELLOW+nbt['aCurrentOutputAmperage']+WHITE+" A"}
+		</line>	
+		
+		<!--能源仓-->
+		<line displayname="电压输入">
+		    for(i=0;i<=9;i++){
+				if(nbt['mID']==40+i||nbt['mID']==150+i||nbt['mID']==690+i){return GREEN+8*Math.pow(4,i)+WHITE+" EU/t"}
+			}
+			for(i=0;i<=3;i++){
+				if(nbt['mID']==11300+i){return GREEN+8388608*Math.pow(4,i)+WHITE+" EU/t"}
+			}
+			for(i=0;i<=8;i++){
+				if(nbt['mID']==15100+i||nbt['mID']==15110+i||nbt['mID']==15120+i){return GREEN+8192*Math.pow(4,i)+WHITE+" EU/t"}
+			}
+		</line>
+		<!--电池箱-->
+		<line displayname="电压输出">
+		    for(i=0;i<=9;i++){
+			if(nbt['mID']==160+i||nbt['mID']==170+i||nbt['mID']==180+i||nbt['mID']==190+i||nbt['mID']==30+i||nbt['mID']==690+i){return GREEN+8*Math.pow(4,i)+WHITE+" EU/t"}
+			}
+			for(i=0;i<=5;i++){
+				if(nbt['mID']==11240+i||nbt['mID']==11250+i||nbt['mID']==11260+i||nbt['mID']==11270+i){
+					if(i==4){return GREEN+1073741824+WHITE+" EU/t"}
+					else if (i==5){return GREEN+2147483640+WHITE+" EU/t"}
+					else return GREEN+8388608*Math.pow(4,i)+WHITE+" EU/t"
+				}
+			}
+		</line>
+				
+		<!--机器/电池箱缓存能量-->
+		<line displayname="hud.msg.energ">
+		    if(nbt['mStoredEnergy']!=0){return formatBytes(nbt['mStoredEnergy'])+WHITE+" EU"}
+		</line>
+
+		
+		<!--机器/电池箱内电池总能量 -->
+		<line displayname="电池">
+		    a=0;
+			b=0;
+			for(i=0,len=nbt['Inventory'].length;i<len;i++){
+				b=b+1;
+				if(nbt['Inventory'][i]['tag']!=undefined){
+					if(nbt['Inventory'][i]['tag']['GT.ItemCharge']!=undefined){
+						a=a+nbt['Inventory'][i]['tag']['GT.ItemCharge'];
+					}else if(nbt['Inventory'][i]['tag']['charge']!=undefined){
+						a=a+nbt['Inventory'][i]['tag']['charge']
+					}
+				}
+			};
+			if(a!=0){
+            return formatBytes(a)+WHITE+" EU"}
+		</line>
+		
+		<!--电池箱 -->
+		<line displayname="最大电流">
+			if(isBetween(160,199,nbt['mID'])||isBetween(690,699)||isBetween(11240,11275)){return GREEN+b+WHITE+" A"}
+		</line>
+		
+		<!--机器里液体存量-->
+		<line displayname="hud.msg.common.LiquidAmount">
+		    if(nbt['mFluid']['Amount']!=undefined){return GREEN+fluidName(nbt['mFluid']['FluidName'])+" : "+WHITE+nbt['mFluid']['Amount']+WHITE+" mB"}
+		</line>
+		
+	    <!--机器/大型机器：物品产物-->
+		<line displayname="hud.msg.greg.output">
+            if(nbt['mActive']==1 && nbt['mID']!=1003 && nbt['mID']!=12730 && nbt['mID']!=12731){return YELLOW+nbt['mOutputItem0']['Count']+"个"+GREEN+name(nbt['mOutputItem0'])}
+			if(nbt['mActive']==1 && nbt['mOutputItem0']['Damage']!=nbt['mOutputItem1']['Damage'] && nbt['mID']==12730 || nbt['mID']==12731){return YELLOW+nbt['mOutputItemsLength']/2+"个 "+GREEN+name(nbt['mOutputItem0'])}
+			if(nbt['mActive']==1 && nbt['mID']==12730 || nbt['mID']==12731){return YELLOW+nbt['mOutputItemsLength']+"个 "+GREEN+name(nbt['mOutputItem0'])}
+		</line>
+		<line displayname="hud.msg.greg.output2">
+            if(nbt['mActive']==1 && nbt['mID']!=1003 && nbt['mID']!=12730 && nbt['mID']!=12731){return YELLOW+nbt['mOutputItem1']['Count']+"个"+GREEN+name(nbt['mOutputItem1'])}
+			if(nbt['mActive']==1 && nbt['mOutputItem0']['Damage']!=nbt['mOutputItem1']['Damage'] && nbt['mID']==12730 || nbt['mID']==12731){return YELLOW+nbt['mOutputItemsLength']/2+"个 "+GREEN+name(nbt['mOutputItem1'])}
+		</line>
+		<line displayname="副产物2">
+            if(nbt['mActive']==1 && nbt['mID']!=1003 && nbt['mID']!=12730 && nbt['mID']!=12731){return YELLOW+nbt['mOutputItem2']['Count']+"个"+GREEN+name(nbt['mOutputItem2'])}
+		</line>
+		<line displayname="副产物3">
+            if(nbt['mActive']==1 && nbt['mID']!=1003 && nbt['mID']!=12730 && nbt['mID']!=12731){return YELLOW+nbt['mOutputItem3']['Count']+"个"+GREEN+name(nbt['mOutputItem3'])}
+		</line>
+		<line displayname="副产物4">
+            if(nbt['mActive']==1 && nbt['mID']!=1003 && nbt['mID']!=12730 && nbt['mID']!=12731){return YELLOW+nbt['mOutputItem4']['Count']+"个"+GREEN+name(nbt['mOutputItem4'])}
+		</line>
+		<line displayname="副产物5">
+            if(nbt['mActive']==1 && nbt['mID']!=1003 && nbt['mID']!=12730 && nbt['mID']!=12731){return YELLOW+nbt['mOutputItem5']['Count']+"个"+GREEN+name(nbt['mOutputItem5'])}
+		</line>
+		<line displayname="副产物6">
+            if(nbt['mActive']==1 && nbt['mID']!=1003 && nbt['mID']!=12730 && nbt['mID']!=12731){return YELLOW+nbt['mOutputItem6']['Count']+"个"+GREEN+name(nbt['mOutputItem6'])}
+		</line>
+		<line displayname="副产物7">
+            if(nbt['mActive']==1 && nbt['mID']!=1003 && nbt['mID']!=12730 && nbt['mID']!=12731){return YELLOW+nbt['mOutputItem7']['Count']+"个"+GREEN+name(nbt['mOutputItem7'])}
+		</line>
+		<line displayname="副产物8">
+            if(nbt['mActive']==1 && nbt['mID']!=1003 && nbt['mID']!=12730 && nbt['mID']!=12731){return YELLOW+nbt['mOutputItem8']['Count']+"个"+GREEN+name(nbt['mOutputItem8'])}
+		</line>
+		<line displayname="副产物9">
+            if(nbt['mActive']==1 && nbt['mID']!=1003 && nbt['mID']!=12730 && nbt['mID']!=12731){return YELLOW+nbt['mOutputItem9']['Count']+"个"+GREEN+name(nbt['mOutputItem9'])}
+		</line>
+		<line displayname="副产物10">
+            if(nbt['mActive']==1 && nbt['mID']!=1003 && nbt['mID']!=12730 && nbt['mID']!=12731){return YELLOW+nbt['mOutputItem10']['Count']+"个"+GREEN+name(nbt['mOutputItem10'])}
+		</line>
+		<line displayname="副产物11">
+            if(nbt['mActive']==1 && nbt['mID']!=1003 && nbt['mID']!=12730 && nbt['mID']!=12731){return YELLOW+nbt['mOutputItem11']['Count']+"个"+GREEN+name(nbt['mOutputItem11'])}
+		</line>
+		<line displayname="副产物12">
+            if(nbt['mActive']==1 && nbt['mID']!=1003 && nbt['mID']!=12730 && nbt['mID']!=12731){return YELLOW+nbt['mOutputItem12']['Count']+"个"+GREEN+name(nbt['mOutputItem12'])}
+		</line>
+
+		<!--机器：液体产物-->
+		<line displayname="流体输出">
+		    if(nbt['mOutputFluid']['Amount']!=undefined){return WHITE+nbt['mOutputFluid']['Amount']+YELLOW+"mB "+GREEN+fluidName(nbt['mOutputFluid']['FluidName'])}
+		</line>
+				
+		<!--大型机器：液体产物-->
+		<line displayname="流体输出">
+		    if(nbt['mOutputFluids0']['Amount']!=undefined){return WHITE+nbt['mOutputFluids0']['Amount']+YELLOW+"mB "+GREEN+fluidName(nbt['mOutputFluids0']['FluidName'])}
+		</line>
+		<line displayname="流体输出">
+		    if(nbt['mOutputFluids1']['Amount']!=undefined){return WHITE+nbt['mOutputFluids1']['Amount']+YELLOW+"mB "+GREEN+fluidName(nbt['mOutputFluids1']['FluidName'])}
+		</line>
+		<line displayname="流体输出">
+		    if(nbt['mOutputFluids2']['Amount']!=undefined){return WHITE+nbt['mOutputFluids2']['Amount']+YELLOW+"mB "+GREEN+fluidName(nbt['mOutputFluids2']['FluidName'])}
+		</line>
+		<line displayname="流体输出">
+		    if(nbt['mOutputFluids3']['Amount']!=undefined){return WHITE+nbt['mOutputFluids3']['Amount']+YELLOW+"mB "+GREEN+fluidName(nbt['mOutputFluids3']['FluidName'])}
+		</line>
+		<line displayname="流体输出">
+		    if(nbt['mOutputFluids4']['Amount']!=undefined){return WHITE+nbt['mOutputFluids4']['Amount']+YELLOW+"mB "+GREEN+fluidName(nbt['mOutputFluids4']['FluidName'])}
+		</line>
+		<line displayname="流体输出">
+		    if(nbt['mOutputFluids5']['Amount']!=undefined){return WHITE+nbt['mOutputFluids5']['Amount']+YELLOW+"mB "+GREEN+fluidName(nbt['mOutputFluids5']['FluidName'])}
+		</line>
+		<line displayname="流体输出">
+		    if(nbt['mOutputFluids6']['Amount']!=undefined){return WHITE+nbt['mOutputFluids6']['Amount']+YELLOW+"mB "+GREEN+fluidName(nbt['mOutputFluids6']['FluidName'])}
+		</line>
+		<line displayname="流体输出">
+		    if(nbt['mOutputFluids7']['Amount']!=undefined){return WHITE+nbt['mOutputFluids7']['Amount']+YELLOW+"mB "+GREEN+fluidName(nbt['mOutputFluids7']['FluidName'])}
+		</line>
+		<line displayname="流体输出">
+		    if(nbt['mOutputFluids8']['Amount']!=undefined){return WHITE+nbt['mOutputFluids8']['Amount']+YELLOW+"mB "+GREEN+fluidName(nbt['mOutputFluids8']['FluidName'])}
+		</line>
+		<line displayname="流体输出">
+		    if(nbt['mOutputFluids9']['Amount']!=undefined){return WHITE+nbt['mOutputFluids9']['Amount']+YELLOW+"mB "+GREEN+fluidName(nbt['mOutputFluids9']['FluidName'])}
+		</line>
+		<line displayname="流体输出">
+		    if(nbt['mOutputFluids10']['Amount']!=undefined){return WHITE+nbt['mOutputFluids10']['Amount']+YELLOW+"mB "+GREEN+fluidName(nbt['mOutputFluids10']['FluidName'])}
+		</line>
+		<line displayname="流体输出">
+		    if(nbt['mOutputFluids11']['Amount']!=undefined){return WHITE+nbt['mOutputFluids11']['Amount']+YELLOW+"mB "+GREEN+fluidName(nbt['mOutputFluids11']['FluidName'])}
+		</line>
+		<line displayname="流体输出">
+		    if(nbt['mOutputFluids12']['Amount']!=undefined){return WHITE+nbt['mOutputFluids12']['Amount']+YELLOW+"mB "+GREEN+fluidName(nbt['mOutputFluids12']['FluidName'])}
+		</line>
+				
+		<!--机器状态 -->
+		<line>
+		    if(nbt['mAllowInputFromOutputSide']==1){return "输出面允许输入"}
+		</line>		
+	</tileentity>
+	
+	<!--线缆/管道 -->
+	<tileentity id="BaseMetaPipeEntity">
+        <line displayname="额定电压">
+			if(isBetween(2000, 2019, nbt['mID'])){return GREEN+"ULV 8"+WHITE+" EU/t"}
+			if(isBetween(1200, 1299, nbt['mID'])){return GREEN+"LV 32 LV"+WHITE+" EU/t"}
+			if(isBetween(1300, 1399, nbt['mID'])||isBetween(2200, 2219, nbt['mID'])||isBetween(2320, 2329, nbt['mID'])){return GREEN+"MV 128"+WHITE+" EU/t"}
+			if(isBetween(1400, 1499, nbt['mID'])||isBetween(2220, 2239, nbt['mID'])||isBetween(2340, 2349, nbt['mID'])){return GREEN+"HV 512"+WHITE+" EU/t"}
+			if(isBetween(1500, 1599, nbt['mID'])||isBetween(2240, 2259, nbt['mID'])||isBetween(2360, 2369, nbt['mID'])){return GREEN+"EV 2048"+WHITE+" EU/t"}
+			if(isBetween(1600, 1699, nbt['mID'])||isBetween(2260, 2279, nbt['mID'])||isBetween(2380, 2389, nbt['mID'])){return GREEN+"IV 8192"+WHITE+" EU/t"}
+			if(isBetween(1700, 1779, nbt['mID'])||isBetween(2280, 2299, nbt['mID'])||isBetween(2400, 2409, nbt['mID'])){return GREEN+"LuV 32768"+WHITE+" EU/t"}
+			if(isBetween(1780, 1799, nbt['mID'])||isBetween(2300, 2319, nbt['mID'])||isBetween(2420, 2429, nbt['mID'])){return GREEN+"ZPM 131072"+WHITE+" EU/t"}
+			if(isBetween(1800, 1920, nbt['mID'])||isBetween(2440, 2519, nbt['mID'])){return GREEN+"UV 524288"+WHITE+" EU/t"}
+			if(isBetween(2200, 2029, nbt['mID'])||isBetween(2520, 2609, nbt['mID'])||isBetween(11310, 11329, nbt['mID'])){return GREEN+"UHV 2097152"+WHITE+" EU/t"}
+			if(isBetween(11330, 11349, nbt['mID'])){return GREEN+"UEV 8388608"+WHITE+" EU/t"}
+			if(isBetween(11350, 11369, nbt['mID'])){return GREEN+"UIV 33554432"+WHITE+" EU/t"}
+			if(isBetween(11370, 11379, nbt['mID'])){return GREEN+"UMV 134217728"+WHITE+" EU/t"}
+			if(isBetween(11390, 11399, nbt['mID'])){return GREEN+"UXV 536870912"+WHITE+" EU/t"}
+			if(isBetween(11410, 11419, nbt['mID'])){return GREEN+"OpV 1073741824"+WHITE+" EU/t"}
+			if(isBetween(11430, 11439, nbt['mID'])){return GREEN+"MAX 2147483640"+WHITE+" EU/t"}
+		</line>			
+        <line displayname="最大电流">
+			var ampereToId = {"1A": [2000, 2006, 1240, 1246, 1260, 1266, 1286, 30645, 30651, 1360, 1366, 1380, 1386, 2200, 2206, 1460, 1466, 2220, 2226, 1580, 1586, 1600, 1820, 1826, 11390, 11410]};
+			var idToAmpere = {}; for (var i in ampereToId) {for (var j in ampereToId[i]) {idToAmpere[ampereToId[i][j]] = i;}} return idToAmpere[nbt['mID']];
+		</line>			
+        <line displayname="最大电流">
+			var ampereToId = {"2A": [2001, 2007, 1241, 1247, 1261, 1267, 1287, 30646, 30652, 1361, 1367, 1381, 1387, 2201, 2207, 1461, 1467, 2221, 2227, 1581, 1587, 1601, 1821, 1827, 11391, 11411, 1200, 1206, 1220, 1226, 1300, 1306, 1340, 1346, 2320, 1440, 1446, 1480, 1486, 2340, 1520, 1526, 2240, 2246, 1640, 1646, 1680, 1686, 2260, 2266, 1780, 1786, 1800, 1806, 11310, 11316, 11370]};
+			var idToAmpere = {}; for (var i in ampereToId) {for (var j in ampereToId[i]) {idToAmpere[ampereToId[i][j]] = i;}} return idToAmpere[nbt['mID']];
+		</line>			
+        <line displayname="最大电流">
+			var ampereToId = {"3A": [1320, 1326, 1420, 1426, 1500, 1506, 1540, 1546, 1660, 1666, 1900, 1906]};
+			var idToAmpere = {}; for (var i in ampereToId) {for (var j in ampereToId[i]) {idToAmpere[ampereToId[i][j]] = i;}} return idToAmpere[nbt['mID']];
+		</line>			
+        <line displayname="最大电流">
+			var ampereToId = {"4A": [2002, 2008, 1242, 1248, 1262, 1268, 1288, 30647, 30653, 1362, 1368, 1382, 1388, 2202, 2208, 1462, 1468, 2222, 2228, 1582, 1588, 1602, 1822, 1828, 11392, 11412, 1201, 1207, 1221, 1227, 1301, 1307, 1341, 1347, 2321, 1441, 1447, 1481, 1487, 2341, 1521, 1527, 2241, 2247, 1641, 1647, 1681, 1687, 2261, 2267, 1781, 1787, 1801, 1807, 11311, 11317, 11371, 1400, 1406, 1560, 1566, 2360, 1620, 1626, 2380, 1700, 1706, 1720, 1726, 1740, 1746, 1760, 1766, 2280, 2286, 2300, 2306, 11350, 11356]};
+			var idToAmpere = {}; for (var i in ampereToId) {for (var j in ampereToId[i]) {idToAmpere[ampereToId[i][j]] = i;}} return idToAmpere[nbt['mID']];
+		</line>			
+        <line displayname="最大电流">
+			var ampereToId = {"6A": [1321, 1327, 1421, 1427, 1501, 1507, 1541, 1547, 1661, 1667, 1901, 1907]};
+			var idToAmpere = {}; for (var i in ampereToId) {for (var j in ampereToId[i]) {idToAmpere[ampereToId[i][j]] = i;}} return idToAmpere[nbt['mID']];
+		</line>			
+        <line displayname="最大电流">
+			var ampereToId = {"8A": [2003, 2009, 1243, 1249, 1263, 1269, 1289, 30648, 30654, 1363, 1369, 1383, 1389, 2203, 2209, 1463, 1469, 2223, 2229, 1583, 1589, 1603, 1823, 1829, 11393, 11413, 1202, 1208, 1222, 1228, 1302, 1308, 1342, 1348, 2322, 1442, 1448, 1482, 1488, 2342, 1522, 1528, 2242, 2248, 1642, 1648, 1682, 1688, 2262, 2268, 1782, 1788, 1802, 1808, 11312, 11318, 11372, 1401, 1407, 1561, 1567, 2361, 1621, 1627, 2381, 1701, 1707, 1721, 1727, 1741, 1747, 1761, 1767, 2281, 2287, 2301, 2307, 11351, 11357, 2400, 2420, 2500, 2506, 11330, 11336]};
+			var idToAmpere = {}; for (var i in ampereToId) {for (var j in ampereToId[i]) {idToAmpere[ampereToId[i][j]] = i;}} return idToAmpere[nbt['mID']];
+		</line>			
+        <line displayname="最大电流">
+			var ampereToId = {"12A": [2004, 2010, 1244, 1250, 1264, 1270, 1290, 30649, 30655, 1364, 1370, 1384, 1390, 2204, 2210, 1464, 1470, 2224, 2230, 1584, 1590, 1604, 1824, 1830, 11394, 11414, 1322, 1328, 1422, 1428, 1502, 1508, 1542, 1548, 1662, 1668, 1902, 1908, 2520, 2526, 2600]};
+			var idToAmpere = {}; for (var i in ampereToId) {for (var j in ampereToId[i]) {idToAmpere[ampereToId[i][j]] = i;}} return idToAmpere[nbt['mID']];
+		</line>			
+        <line displayname="最大电流">
+			var ampereToId = {"16A": [2005, 2011, 1245, 1251, 1265, 1271, 1291, 30650, 30656, 1365, 1371, 1385, 1391, 2205, 2211, 1465, 1471, 2225, 2231, 1585, 1591, 1605, 1825, 1831, 11395, 11415, 1203, 1209, 1223, 1229, 1303, 1309, 1343, 1349, 2323, 1443, 1449, 1483, 1489, 2343, 1523, 1529, 2243, 2249, 1643, 1649, 1683, 1689, 2263, 2269, 1783, 1789, 1803, 1809, 11313, 11319, 11373, 1402, 1408, 1562, 1568, 2362, 1622, 1628, 2382, 1702, 1708, 1722, 1728, 1742, 1748, 1762, 1768, 2282, 2288, 2302, 2308, 11352, 11358, 2401, 2421, 2501, 2507, 11331, 11337, 2440, 2020]};
+			var idToAmpere = {}; for (var i in ampereToId) {for (var j in ampereToId[i]) {idToAmpere[ampereToId[i][j]] = i;}} return idToAmpere[nbt['mID']];
+		</line>			
+        <line displayname="最大电流">
+			var ampereToId = {"24A": [1204, 1210, 1224, 1230, 1304, 1310, 1344, 1350, 2324, 1444, 1450, 1484, 1490, 2344, 1524, 1530, 2244, 2250, 1644, 1650, 1684, 1690, 2264, 2270, 1784, 1790, 1804, 1810, 11314, 11320, 11374, 1323, 1329, 1423, 1429, 1503, 1509, 1543, 1549, 1663, 1669, 1903, 1909, 2521, 2527, 2601]};
+			var idToAmpere = {}; for (var i in ampereToId) {for (var j in ampereToId[i]) {idToAmpere[ampereToId[i][j]] = i;}} return idToAmpere[nbt['mID']];
+		</line>			
+        <line displayname="最大电流">
+			var ampereToId = {"32A": [1205, 1211, 1225, 1231, 1305, 1311, 1345, 1351, 2325, 1445, 1451, 1485, 1491, 2345, 1525, 1531, 2245, 2251, 1645, 1651, 1685, 1691, 2265, 2271, 1785, 1791, 1805, 1811, 11315, 11321, 11375, 1403, 1409, 1563, 1569, 2363, 1623, 1629, 2383, 1703, 1709, 1723, 1729, 1743, 1749, 1763, 1769, 2283, 2289, 2303, 2309, 11353, 11359, 2402, 2422, 2502, 2508, 11332, 11338, 2441, 2021]};
+			var idToAmpere = {}; for (var i in ampereToId) {for (var j in ampereToId[i]) {idToAmpere[ampereToId[i][j]] = i;}} return idToAmpere[nbt['mID']];
+		</line>			
+        <line displayname="最大电流">
+			var ampereToId = {"36A": [1324, 1330, 1424, 1430, 1504, 1510, 1544, 1550, 1664, 1670, 1904, 1910]};
+			var idToAmpere = {}; for (var i in ampereToId) {for (var j in ampereToId[i]) {idToAmpere[ampereToId[i][j]] = i;}} return idToAmpere[nbt['mID']];
+		</line>			
+        <line displayname="最大电流">
+			var ampereToId = {"48A": [1325, 1331, 1425, 1431, 1505, 1511, 1545, 1551, 1665, 1671, 1905, 1911, 1404, 1410, 1564, 1570, 2364, 1624, 1630, 2384, 1704, 1710, 1724, 1730, 1744, 1750, 1764, 1770, 2284, 2290, 2304, 2310, 11354, 11360, 2522, 2528, 2602]};
+			var idToAmpere = {}; for (var i in ampereToId) {for (var j in ampereToId[i]) {idToAmpere[ampereToId[i][j]] = i;}} return idToAmpere[nbt['mID']];
+		</line>			
+        <line displayname="最大电流">
+			var ampereToId = {"64A": [1405, 1411, 1565, 1571, 2365, 1625, 1631, 2385, 1705, 1711, 1725, 1731, 1745, 1751, 1765, 1771, 2285, 2291, 2305, 2311, 11355, 11361, 2403, 2423, 2503, 2509, 11333, 11339, 2442, 2022]};
+			var idToAmpere = {}; for (var i in ampereToId) {for (var j in ampereToId[i]) {idToAmpere[ampereToId[i][j]] = i;}} return idToAmpere[nbt['mID']];
+		</line>			
+        <line displayname="最大电流">
+			var ampereToId = {"96A": [2404, 2424, 2504, 2510, 11334, 11340, 2523, 2529, 2603]};
+			var idToAmpere = {}; for (var i in ampereToId) {for (var j in ampereToId[i]) {idToAmpere[ampereToId[i][j]] = i;}} return idToAmpere[nbt['mID']];
+		</line>			
+        <line displayname="最大电流">
+			var ampereToId = {"128A": [2405, 2425, 2505, 2511, 11335, 11341, 2443, 2023]};
+			var idToAmpere = {}; for (var i in ampereToId) {for (var j in ampereToId[i]) {idToAmpere[ampereToId[i][j]] = i;}} return idToAmpere[nbt['mID']];
+		</line>			
+        <line displayname="最大电流">
+			switch(nbt['mID']){case 2524:return "144A";break; case 2530:return "144A";break; case 2604:return "144A";break;}
+			switch(nbt['mID']){case 2444:return "192A";break; case 2024:return "192A";break; case 2525:return "192A";break; case 2531:return "192A";break; case 2605:return "192A";break;}
+			switch(nbt['mID']){case 2445:return "256A";break; case 2025:return "256A";break;}
+			switch(nbt['mID']){case 11430:return "8192A";break;}
+			switch(nbt['mID']){case 11431:return "16381A";break;}
+			switch(nbt['mID']){case 11432:return "32768A";break;}
+			switch(nbt['mID']){case 11433:return "65536A";break;}
+			switch(nbt['mID']){case 11434:return "98304A";break;}
+			switch(nbt['mID']){case 11435:return "131072A";break;}
+		</line>			
+	</tileentity>
+</oo>

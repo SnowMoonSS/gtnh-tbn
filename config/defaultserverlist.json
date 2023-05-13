@@ -1,0 +1,27 @@
+{
+  "useURL": true,
+  "allowModifications": true,
+  "url": "https://raw.githubusercontent.com/GTNewHorizons/GT-New-Horizons-Modpack/master/servers.json",
+  "servers": {},
+  "DO_NOT_EDIT_prevDefaultServers": [
+    "delta.gtnewhorizons.com",
+    "epsilon.gtnewhorizons.com",
+    "eta.gtnewhorizons.com",
+    "zeta.gtnewhorizons.com",
+    "newhorizonsold.prospercraft.com",
+    "mc.stonelegion.com",
+    "gtnewhorizons.myftb.de",
+    "gt.craftersland.net",
+    "gtnh.stonehuts.net",
+    "gtnh.114-7.com",
+    "hitechmine.ru",
+    "gtnh.moddedminecraft.club",
+    "gtnh-na.moddedminecraft.club",
+    "gtnh-im.moddedminecraft.club",
+    "gtnh-im-na.moddedminecraft.club",
+    "aragil.ddns.net",
+    "horizons.mineyourmind.net",
+    "play.arcturus-official.eu",
+    "gtnh.valhallamc.io"
+  ]
+}

@@ -1,0 +1,1341 @@
+{
+  "_README": "https://gitlab.com/CDAGaming/CraftPresence/-/wikis/home",
+  "_schemaVersion": 2,
+  "_lastMCVersionId": 5,
+  "generalSettings": {
+    "detectCurseManifest": false,
+    "detectMultiMCManifest": false,
+    "detectMCUpdaterInstance": false,
+    "detectTechnicPack": false,
+    "detectBiomeData": false,
+    "detectDimensionData": true,
+    "detectWorldData": true,
+    "clientId": "695762783626854451",
+    "defaultIcon": "gtnhlogoresized",
+    "enableJoinRequests": false,
+    "partyPrivacyLevel": 1,
+    "preferredClientLevel": 3,
+    "resetTimeOnInit": false,
+    "autoRegister": false
+  },
+  "biomeSettings": {
+    "fallbackBiomeIcon": "gtnhlogoresized",
+    "biomeData": {
+      "default": {
+        "textOverride": "Playing in {biome.name}",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      }
+    }
+  },
+  "dimensionSettings": {
+    "fallbackDimensionIcon": "default",
+    "dimensionData": {
+      "enceladus": {
+        "textOverride": "On {dimension.name}",
+        "iconOverride": "enceladus",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "mirror": {
+        "textOverride": "In the {dimension.name}",
+        "iconOverride": "mirror",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "torment": {
+        "textOverride": "In the {dimension.name}",
+        "iconOverride": "torment",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "spirit_world": {
+        "textOverride": "In the {dimension.name}",
+        "iconOverride": "spirit_world",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "mercury": {
+        "textOverride": "On {dimension.name}",
+        "iconOverride": "mercury",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "underdark": {
+        "textOverride": "In the Deep Dark",
+        "iconOverride": "underdark",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "dimensiondarkworld": {
+        "textOverride": "In the Dark World",
+        "iconOverride": "dark_world",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "the_end": {
+        "textOverride": "In the End",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "default": {
+        "textOverride": "In the {dimension.name}",
+        "iconOverride": "default",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "venus": {
+        "textOverride": "In the {dimension.name}",
+        "iconOverride": "venus",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "α_centauri_bb": {
+        "textOverride": "On {dimension.name}",
+        "iconOverride": "a_centauri_b",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "bedrock": {
+        "textOverride": "In the {dimension.name}",
+        "iconOverride": "bedrock",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "t_ceti_е": {
+        "textOverride": "On {dimension.name}",
+        "iconOverride": "tcetie",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "titan": {
+        "textOverride": "On {dimension.name}",
+        "iconOverride": "titan",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "ganymede": {
+        "textOverride": "On {dimension.name}",
+        "iconOverride": "ganymede",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "ceres": {
+        "textOverride": "On {dimension.name}",
+        "iconOverride": "ceres",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "twilight_forest": {
+        "textOverride": "In the {dimension.name}",
+        "iconOverride": "twilight_forestv2",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "oberon": {
+        "textOverride": "On {dimension.name}",
+        "iconOverride": "oberon",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "europa": {
+        "textOverride": "On {dimension.name}",
+        "iconOverride": "europa",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "triton": {
+        "textOverride": "On {dimension.name}",
+        "iconOverride": "triton",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "phobos": {
+        "textOverride": "On {dimension.name}",
+        "iconOverride": "phobos",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "asteroids": {
+        "textOverride": "Mining Asteroids",
+        "iconOverride": "asteroids",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "io": {
+        "textOverride": "On {dimension.name}",
+        "iconOverride": "io",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "mars": {
+        "textOverride": "On {dimension.name}",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "miranda": {
+        "textOverride": "On {dimension.name}",
+        "iconOverride": "miranda",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "haumea": {
+        "textOverride": "On {dimension.name}",
+        "iconOverride": "haumea",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "proteus": {
+        "textOverride": "On {dimension.name}",
+        "iconOverride": "proteus",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "the_last_millenium": {
+        "textOverride": "In the Last Millenium",
+        "iconOverride": "last_millenium",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "pluto": {
+        "textOverride": "On {dimension.name}",
+        "iconOverride": "pluto",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "makemake": {
+        "textOverride": "On {dimension.name}",
+        "iconOverride": "makemake",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "barnarda_f": {
+        "textOverride": "On {dimension.name}",
+        "iconOverride": "barnarda_f",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "ross128b": {
+        "textOverride": "On {dimension.name}",
+        "iconOverride": "ross128b",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "australia": {
+        "textOverride": "In {dimension.name}",
+        "iconOverride": "australia",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "overworld": {
+        "textOverride": "In the {dimension.name}",
+        "iconOverride": "overworldv2",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "deimos": {
+        "textOverride": "On {dimension.name}",
+        "iconOverride": "deimos",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "the_outer_lands": {
+        "textOverride": "In the Outer Lands",
+        "iconOverride": "the_outer_lands",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "kuiper_belt": {
+        "textOverride": "On the {dimension.name}",
+        "iconOverride": "kuiper_belt",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "outer_lands": {
+        "textOverride": "In the {dimension.name}",
+        "iconOverride": "the_outer_lands",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "moon": {
+        "textOverride": "On the {dimension.name}",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "spectreworld": {
+        "textOverride": "In the Spectre World",
+        "iconOverride": "spectre_world",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "the_nether": {
+        "textOverride": "In the Nether",
+        "iconOverride": "nether",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "barnarda_e": {
+        "textOverride": "On {dimension.name}",
+        "iconOverride": "barnarda_e",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "pocket_plane": {
+        "textOverride": "In a {dimension.name}",
+        "iconOverride": "pocket_plane",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "ross128ba": {
+        "textOverride": "On {dimension.name}",
+        "iconOverride": "ross128a",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "vega_b": {
+        "textOverride": "On {dimension.name}",
+        "iconOverride": "vega_b",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "barnarda_c": {
+        "textOverride": "On {dimension.name}",
+        "iconOverride": "barnarda_c",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      },
+      "callisto": {
+        "textOverride": "On {dimension.name}",
+        "iconOverride": "callisto",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      }
+    }
+  },
+  "serverSettings": {
+    "fallbackServerIcon": "gtnhlogoresized",
+    "fallbackServerName": "GT:NH Server",
+    "fallbackServerMotd": "A Minecraft Server",
+    "serverData": {
+      "default": {
+        "textOverride": "Playing on {server.motd.raw}",
+        "data": {
+          "enabled": true,
+          "useAsMain": false,
+          "details": "",
+          "gameState": "",
+          "largeImageKey": "",
+          "largeImageText": "",
+          "smallImageKey": "",
+          "smallImageText": "",
+          "startTimestamp": "",
+          "endTimestamp": "",
+          "buttons": {
+            "default": {
+              "label": "Example Text",
+              "url": "https://google.com"
+            }
+          }
+        }
+      }
+    }
+  },
+  "statusMessages": {
+    "mainMenuData": {
+      "textOverride": "In the Main Menu",
+      "data": {
+        "enabled": true,
+        "useAsMain": false,
+        "details": "",
+        "gameState": "",
+        "largeImageKey": "",
+        "largeImageText": "",
+        "smallImageKey": "",
+        "smallImageText": "",
+        "startTimestamp": "",
+        "endTimestamp": "",
+        "buttons": {
+          "default": {
+            "label": "Example Text",
+            "url": "https://google.com"
+          }
+        }
+      }
+    },
+    "loadingData": {
+      "textOverride": "Loading...",
+      "data": {
+        "enabled": true,
+        "useAsMain": false,
+        "details": "",
+        "gameState": "",
+        "largeImageKey": "",
+        "largeImageText": "",
+        "smallImageKey": "",
+        "smallImageText": "",
+        "startTimestamp": "",
+        "endTimestamp": "",
+        "buttons": {
+          "default": {
+            "label": "Example Text",
+            "url": "https://google.com"
+          }
+        }
+      }
+    },
+    "lanData": {
+      "textOverride": "Playing on a LAN Server",
+      "data": {
+        "enabled": true,
+        "useAsMain": false,
+        "details": "",
+        "gameState": "",
+        "largeImageKey": "",
+        "largeImageText": "",
+        "smallImageKey": "",
+        "smallImageText": "",
+        "startTimestamp": "",
+        "endTimestamp": "",
+        "buttons": {
+          "default": {
+            "label": "Example Text",
+            "url": "https://google.com"
+          }
+        }
+      }
+    },
+    "singleplayerData": {
+      "textOverride": "Playing Singleplayer",
+      "data": {
+        "enabled": true,
+        "useAsMain": false,
+        "details": "",
+        "gameState": "",
+        "largeImageKey": "",
+        "largeImageText": "",
+        "smallImageKey": "",
+        "smallImageText": "",
+        "startTimestamp": "",
+        "endTimestamp": "",
+        "buttons": {
+          "default": {
+            "label": "Example Text",
+            "url": "https://google.com"
+          }
+        }
+      }
+    }
+  },
+  "advancedSettings": {
+    "enableCommands": true,
+    "enablePerGui": false,
+    "enablePerItem": false,
+    "enablePerEntity": false,
+    "renderTooltips": true,
+    "formatWords": true,
+    "debugMode": false,
+    "verboseMode": false,
+    "refreshRate": 20,
+    "roundSize": 3,
+    "includeExtraGuiClasses": false,
+    "allowPlaceholderPreviews": false,
+    "guiSettings": {
+      "fallbackGuiIcon": "unknown",
+      "guiData": {
+        "default": {
+          "textOverride": "In {screen.name}",
+          "data": {
+            "enabled": true,
+            "useAsMain": false,
+            "details": "",
+            "gameState": "",
+            "largeImageKey": "",
+            "largeImageText": "",
+            "smallImageKey": "",
+            "smallImageText": "",
+            "startTimestamp": "",
+            "endTimestamp": "",
+            "buttons": {
+              "default": {
+                "label": "Example Text",
+                "url": "https://google.com"
+              }
+            }
+          }
+        }
+      }
+    },
+    "itemMessages": {
+      "default": "Holding {item.message.holding}"
+    },
+    "entitySettings": {
+      "fallbackEntityIcon": "unknown",
+      "targetData": {
+        "default": {
+          "textOverride": "Targeting {entity.target.name}",
+          "data": {
+            "enabled": true,
+            "useAsMain": false,
+            "details": "",
+            "gameState": "",
+            "largeImageKey": "",
+            "largeImageText": "",
+            "smallImageKey": "",
+            "smallImageText": "",
+            "startTimestamp": "",
+            "endTimestamp": "",
+            "buttons": {
+              "default": {
+                "label": "Example Text",
+                "url": "https://google.com"
+              }
+            }
+          }
+        }
+      },
+      "ridingData": {
+        "default": {
+          "textOverride": "Riding {entity.riding.name}",
+          "data": {
+            "enabled": true,
+            "useAsMain": false,
+            "details": "",
+            "gameState": "",
+            "largeImageKey": "",
+            "largeImageText": "",
+            "smallImageKey": "",
+            "smallImageText": "",
+            "startTimestamp": "",
+            "endTimestamp": "",
+            "buttons": {
+              "default": {
+                "label": "Example Text",
+                "url": "https://google.com"
+              }
+            }
+          }
+        }
+      }
+    },
+    "allowEndpointIcons": true,
+    "serverIconEndpoint": "https://api.mcsrvstat.us/icon/{server.address.short}",
+    "playerSkinEndpoint": "https://mc-heads.net/avatar/{getOrDefault(player.uuid.short, player.name)}"
+  },
+  "accessibilitySettings": {
+    "tooltipBackgroundColor": "0xF0100010",
+    "tooltipBorderColor": "0x505000FF",
+    "guiBackgroundColor": "minecraft:textures/gui/options_background.png",
+    "buttonBackgroundColor": "minecraft:textures/gui/widgets.png",
+    "languageId": "en_US",
+    "showBackgroundAsDark": true,
+    "stripTranslationColors": false,
+    "showLoggingInChat": false,
+    "stripExtraGuiElements": false,
+    "configKeyCode": 0
+  },
+  "displaySettings": {
+    "presenceData": {
+      "enabled": true,
+      "useAsMain": false,
+      "details": "{menu.message}{dimension.message}",
+      "gameState": "{server.message} {custom.pack}",
+      "largeImageKey": "{menu.icon}{dimension.icon}",
+      "largeImageText": "{menu.message}{dimension.message}",
+      "smallImageKey": "{server.icon}{pack.icon}",
+      "smallImageText": "{server.message} {custom.pack}",
+      "startTimestamp": "{data.general.time}",
+      "endTimestamp": "",
+      "buttons": {
+        "default": {
+          "label": "Example Text",
+          "url": "https://google.com"
+        }
+      }
+    },
+    "dynamicIcons": {
+      "default": "https://via.placeholder.com/256.png",
+      "SnowMoonSS": "https://mc-heads.net/avatar/1984b3ed83b3435b968ed057895a4525",
+      "mc.snowfantasy.top": "https://api.mcsrvstat.us/icon/mc.snowfantasy.top"
+    },
+    "dynamicVariables": {
+      "default": "Example Text",
+      "mods": "{general.mods} Mod(s)",
+      "player_info_coordinate": "At {player.position.x}, {player.position.z}",
+      "players": "{server.players.current} / {server.players.max} Players",
+      "player_info_in": "({custom.player_info_health})",
+      "player_info_items": "Items: {item.main_hand.message}",
+      "player_info_out": "As {player.name}",
+      "player_info_health": "Health: {player.health.current}/{player.health.max}",
+      "world_info": "On {world.name}",
+      "pack": "Minecraft 1.7.10"
+    }
+  }
+}
